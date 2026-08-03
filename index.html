@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SociuS 原価管理</title>
+  <meta name="theme-color" content="#32d7c8" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="SociuS原価" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="apple-touch-icon" href="icon-192.png" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div>
+      <p class="eyebrow">株式会社 SociuS</p>
+      <h1>原価管理アプリ</h1>
+    </div>
+    <button id="addProjectBtn" class="primary">＋ 新しい現場</button>
+  </header>
+
+  <main>
+    <section class="summary-grid">
+      <article class="card summary-card"><span>現場数</span><strong id="projectCount">0</strong></article>
+      <article class="card summary-card"><span>売上合計</span><strong id="salesTotal">¥0</strong></article>
+      <article class="card summary-card"><span>原価合計</span><strong id="costTotal">¥0</strong></article>
+      <article class="card summary-card accent"><span>利益合計</span><strong id="profitTotal">¥0</strong></article>
+    </section>
+
+    <section class="toolbar card">
+      <input id="searchInput" type="search" placeholder="現場名・住所・元請で検索" />
+      <select id="statusFilter">
+        <option value="all">すべての状態</option>
+        <option value="見積中">見積中</option>
+        <option value="進行中">進行中</option>
+        <option value="完了">完了</option>
+        <option value="入金済み">入金済み</option>
+      </select>
+    </section>
+
+    <section class="card">
+      <div class="section-title">
+        <div><p class="eyebrow">PROJECTS</p><h2>現場一覧</h2></div>
+        <button id="exportBtn" class="secondary">CSV出力</button>
+      </div>
+      <div id="projectList" class="project-list"></div>
+      <p id="emptyMessage" class="empty">まだ現場がありません。「新しい現場」から登録してください。</p>
+    </section>
+  </main>
+
+  <dialog id="projectDialog">
+    <form id="projectForm" method="dialog">
+      <div class="dialog-head"><h2 id="dialogTitle">新しい現場</h2><button type="button" id="closeDialog" class="icon-btn">×</button></div>
+      <input type="hidden" id="projectId" />
+      <div class="form-grid">
+        <label>現場名<input id="name" required placeholder="例：○○邸 解体工事" /></label>
+        <label>状態<select id="status"><option>見積中</option><option selected>進行中</option><option>完了</option><option>入金済み</option></select></label>
+        <label class="wide">住所<input id="address" placeholder="例：東京都○○区..." /></label>
+        <label>元請会社<input id="client" placeholder="例：○○建設株式会社" /></label>
+        <label>担当者<input id="manager" placeholder="例：小林" /></label>
+        <label>開始日<input id="startDate" type="date" /></label>
+        <label>完了予定日<input id="endDate" type="date" /></label>
+        <label>契約金額（税込）<input id="sales" type="number" min="0" value="0" /></label>
+        <label>人件費<input id="labor" type="number" min="0" value="0" /></label>
+        <label>外注費<input id="outsourcing" type="number" min="0" value="0" /></label>
+        <label>重機費<input id="machinery" type="number" min="0" value="0" /></label>
+        <label>運搬費<input id="transport" type="number" min="0" value="0" /></label>
+        <label>処分費<input id="disposal" type="number" min="0" value="0" /></label>
+        <label>燃料費<input id="fuel" type="number" min="0" value="0" /></label>
+        <label>材料費<input id="materials" type="number" min="0" value="0" /></label>
+        <label>その他経費<input id="other" type="number" min="0" value="0" /></label>
+        <label class="wide">メモ<textarea id="memo" rows="3" placeholder="注意事項、追加工事など"></textarea></label>
+      </div>
+      <div class="live-result">
+        <div><span>原価合計</span><strong id="formCost">¥0</strong></div>
+        <div><span>予想利益</span><strong id="formProfit">¥0</strong></div>
+        <div><span>利益率</span><strong id="formMargin">0%</strong></div>
+      </div>
+      <div class="dialog-actions"><button type="button" id="deleteBtn" class="danger hidden">削除</button><span></span><button type="button" id="cancelBtn" class="secondary">キャンセル</button><button type="submit" class="primary">保存する</button></div>
+    </form>
+  </dialog>
+
+  <script src="app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js'));
+    }
+  </script>
+</body>
+</html>
