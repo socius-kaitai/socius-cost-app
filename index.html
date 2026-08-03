@@ -1,92 +1,64 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SociuS 原価管理</title>
-  <meta name="theme-color" content="#32d7c8" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-  <meta name="apple-mobile-web-app-title" content="SociuS原価" />
-  <link rel="manifest" href="manifest.webmanifest" />
-  <link rel="apple-touch-icon" href="icon-192.png" />
-  <link rel="stylesheet" href="style.css" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0f766e">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="SociuS原価">
+<title>SociuS 原価管理</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-192.png">
+<style>
+:root{--bg:#f3f7f7;--card:#fff;--ink:#172126;--muted:#6b7a80;--line:#dce7e7;--green:#36d3a4;--blue:#38bdf8;--deep:#0f766e;--danger:#d94b55;--shadow:0 12px 32px rgba(20,55,60,.10)}
+*{box-sizing:border-box}html{background:var(--bg)}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans JP",sans-serif;background:var(--bg);color:var(--ink);padding-bottom:90px}button,input,select,textarea{font:inherit}button{cursor:pointer}.topbar{position:sticky;top:0;z-index:20;padding:calc(12px + env(safe-area-inset-top)) 16px 12px;background:rgba(255,255,255,.92);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}.brand{max-width:1100px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:12px}.brand-left{display:flex;align-items:center;gap:12px}.mark{width:42px;height:42px;border-radius:14px;background:linear-gradient(135deg,var(--green),var(--blue));display:grid;place-items:center;font-weight:900;color:#073b42;box-shadow:0 8px 18px rgba(56,189,248,.22)}.brand small{display:block;color:var(--muted);font-weight:700}.brand h1{font-size:18px;margin:1px 0 0}.add{border:0;border-radius:14px;padding:11px 14px;font-weight:850;background:linear-gradient(135deg,var(--green),var(--blue));color:#073b42}.wrap{max-width:1100px;margin:auto;padding:18px 14px}.hero{background:linear-gradient(135deg,#0f766e,#155e75);color:#fff;border-radius:24px;padding:22px;box-shadow:var(--shadow);overflow:hidden;position:relative}.hero:after{content:"";position:absolute;width:190px;height:190px;border-radius:50%;right:-70px;top:-85px;background:rgba(255,255,255,.10)}.hero p{margin:0 0 6px;opacity:.82;font-size:13px}.hero h2{margin:0;font-size:26px}.hero .profit{font-size:34px;font-weight:900;margin-top:12px}.hero .sub{display:flex;gap:18px;margin-top:12px;font-size:13px;flex-wrap:wrap}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:14px 0}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:0 8px 22px rgba(20,55,60,.06)}.metric{padding:16px}.metric span{display:block;color:var(--muted);font-size:12px}.metric strong{display:block;margin-top:7px;font-size:20px}.section{margin-top:15px}.section-head{display:flex;align-items:center;justify-content:space-between;padding:17px 17px 11px}.section-head h3{margin:0;font-size:18px}.pill{border:0;background:#edf4f4;border-radius:999px;padding:8px 11px;font-weight:750;color:#415159}.filters{display:grid;grid-template-columns:1fr 150px;gap:9px;padding:0 15px 15px}.filters input,.filters select{width:100%;border:1px solid var(--line);border-radius:12px;padding:12px;background:#fff;outline:none}.list{border-top:1px solid var(--line)}.project{padding:15px 16px;border-bottom:1px solid var(--line);display:grid;grid-template-columns:1.4fr repeat(3,.7fr) auto;gap:12px;align-items:center}.project:last-child{border-bottom:0}.project:active{background:#f6fbfa}.project-name b{display:block}.project-name small{display:block;color:var(--muted);margin-top:4px}.num span{display:block;color:var(--muted);font-size:11px}.num b{display:block;margin-top:3px;font-size:14px}.positive{color:#14806a}.negative{color:var(--danger)}.status{font-size:11px;font-weight:850;border-radius:999px;padding:6px 9px;background:#e9f7f2;white-space:nowrap}.empty{text-align:center;color:var(--muted);padding:42px 15px}.quick{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding:0 15px 16px}.quick button{border:1px solid var(--line);background:#fff;border-radius:14px;padding:13px;font-weight:800;color:#33454b}.nav{position:fixed;bottom:0;left:0;right:0;z-index:25;background:rgba(255,255,255,.96);backdrop-filter:blur(18px);border-top:1px solid var(--line);padding:8px 8px calc(8px + env(safe-area-inset-bottom));display:flex;justify-content:space-around}.nav button{border:0;background:transparent;min-width:62px;color:#708086;font-size:11px;font-weight:750}.nav i{display:block;font-style:normal;font-size:21px;margin-bottom:2px}.nav .active{color:var(--deep)}dialog{width:min(760px,96vw);max-height:92vh;border:0;border-radius:22px;padding:0;box-shadow:0 30px 90px rgba(0,0,0,.28)}dialog::backdrop{background:rgba(10,25,30,.52)}form{padding:18px}.dialog-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}.dialog-head h2{margin:0}.x{border:0;background:#eef3f3;border-radius:50%;width:38px;height:38px;font-size:22px}.tabs{display:flex;gap:7px;overflow:auto;margin-bottom:14px}.tabs button{border:0;border-radius:999px;padding:9px 12px;background:#edf3f3;font-weight:800;white-space:nowrap}.tabs .on{background:#dff8ef;color:#0d6b5c}.panel{display:none}.panel.on{display:block}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.form-grid label{font-size:12px;font-weight:800;color:#46565c}.form-grid input,.form-grid select,.form-grid textarea{width:100%;margin-top:5px;border:1px solid var(--line);border-radius:12px;padding:11px;background:#fff}.wide{grid-column:1/-1}.cost-summary{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;background:#eef7f6;border-radius:15px;padding:12px;margin-top:14px}.cost-summary span{display:block;color:var(--muted);font-size:11px}.cost-summary b{display:block;margin-top:4px}.actions{display:flex;gap:9px;margin-top:16px}.actions .spacer{flex:1}.actions button{border:0;border-radius:12px;padding:12px 14px;font-weight:850}.save{background:linear-gradient(135deg,var(--green),var(--blue));color:#073b42}.cancel{background:#edf3f3}.delete{background:#ffe8ea;color:#a72f39}.notice{font-size:12px;color:var(--muted);padding:12px;background:#f5f8f8;border-radius:12px;line-height:1.6}.toast{position:fixed;left:50%;bottom:92px;transform:translateX(-50%) translateY(20px);background:#17383c;color:#fff;padding:11px 15px;border-radius:999px;font-weight:750;opacity:0;pointer-events:none;transition:.2s;z-index:50}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+@media(max-width:760px){.grid{grid-template-columns:1fr 1fr}.project{grid-template-columns:1fr 1fr}.project-name{grid-column:1/-1}.project .num:nth-of-type(3){display:none}.project .status{justify-self:end}.filters{grid-template-columns:1fr}.quick{grid-template-columns:1fr 1fr}.form-grid{grid-template-columns:1fr}.wide{grid-column:auto}.cost-summary{grid-template-columns:1fr}.hero .profit{font-size:30px}}
+</style>
 </head>
 <body>
-  <header class="app-header">
-    <div>
-      <p class="eyebrow">株式会社 SociuS</p>
-      <h1>原価管理アプリ</h1>
-    </div>
-    <button id="addProjectBtn" class="primary">＋ 新しい現場</button>
-  </header>
-
-  <main>
-    <section class="summary-grid">
-      <article class="card summary-card"><span>現場数</span><strong id="projectCount">0</strong></article>
-      <article class="card summary-card"><span>売上合計</span><strong id="salesTotal">¥0</strong></article>
-      <article class="card summary-card"><span>原価合計</span><strong id="costTotal">¥0</strong></article>
-      <article class="card summary-card accent"><span>利益合計</span><strong id="profitTotal">¥0</strong></article>
-    </section>
-
-    <section class="toolbar card">
-      <input id="searchInput" type="search" placeholder="現場名・住所・元請で検索" />
-      <select id="statusFilter">
-        <option value="all">すべての状態</option>
-        <option value="見積中">見積中</option>
-        <option value="進行中">進行中</option>
-        <option value="完了">完了</option>
-        <option value="入金済み">入金済み</option>
-      </select>
-    </section>
-
-    <section class="card">
-      <div class="section-title">
-        <div><p class="eyebrow">PROJECTS</p><h2>現場一覧</h2></div>
-        <button id="exportBtn" class="secondary">CSV出力</button>
-      </div>
-      <div id="projectList" class="project-list"></div>
-      <p id="emptyMessage" class="empty">まだ現場がありません。「新しい現場」から登録してください。</p>
-    </section>
-  </main>
-
-  <dialog id="projectDialog">
-    <form id="projectForm" method="dialog">
-      <div class="dialog-head"><h2 id="dialogTitle">新しい現場</h2><button type="button" id="closeDialog" class="icon-btn">×</button></div>
-      <input type="hidden" id="projectId" />
-      <div class="form-grid">
-        <label>現場名<input id="name" required placeholder="例：○○邸 解体工事" /></label>
-        <label>状態<select id="status"><option>見積中</option><option selected>進行中</option><option>完了</option><option>入金済み</option></select></label>
-        <label class="wide">住所<input id="address" placeholder="例：東京都○○区..." /></label>
-        <label>元請会社<input id="client" placeholder="例：○○建設株式会社" /></label>
-        <label>担当者<input id="manager" placeholder="例：小林" /></label>
-        <label>開始日<input id="startDate" type="date" /></label>
-        <label>完了予定日<input id="endDate" type="date" /></label>
-        <label>契約金額（税込）<input id="sales" type="number" min="0" value="0" /></label>
-        <label>人件費<input id="labor" type="number" min="0" value="0" /></label>
-        <label>外注費<input id="outsourcing" type="number" min="0" value="0" /></label>
-        <label>重機費<input id="machinery" type="number" min="0" value="0" /></label>
-        <label>運搬費<input id="transport" type="number" min="0" value="0" /></label>
-        <label>処分費<input id="disposal" type="number" min="0" value="0" /></label>
-        <label>燃料費<input id="fuel" type="number" min="0" value="0" /></label>
-        <label>材料費<input id="materials" type="number" min="0" value="0" /></label>
-        <label>その他経費<input id="other" type="number" min="0" value="0" /></label>
-        <label class="wide">メモ<textarea id="memo" rows="3" placeholder="注意事項、追加工事など"></textarea></label>
-      </div>
-      <div class="live-result">
-        <div><span>原価合計</span><strong id="formCost">¥0</strong></div>
-        <div><span>予想利益</span><strong id="formProfit">¥0</strong></div>
-        <div><span>利益率</span><strong id="formMargin">0%</strong></div>
-      </div>
-      <div class="dialog-actions"><button type="button" id="deleteBtn" class="danger hidden">削除</button><span></span><button type="button" id="cancelBtn" class="secondary">キャンセル</button><button type="submit" class="primary">保存する</button></div>
-    </form>
-  </dialog>
-
-  <script src="app.js"></script>
-  <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js'));
-    }
-  </script>
-</body>
-</html>
+<header class="topbar"><div class="brand"><div class="brand-left"><div class="mark">S</div><div><small>株式会社 SociuS</small><h1>原価管理</h1></div></div><button class="add" id="addBtn">＋ 現場登録</button></div></header>
+<main class="wrap">
+<section class="hero"><p>今月の予想利益</p><h2 id="monthLabel"></h2><div class="profit" id="heroProfit">¥0</div><div class="sub"><span>売上 <b id="heroSales">¥0</b></span><span>原価 <b id="heroCost">¥0</b></span><span>利益率 <b id="heroMargin">0%</b></span></div></section>
+<section class="grid"><article class="card metric"><span>全現場</span><strong id="count">0件</strong></article><article class="card metric"><span>進行中</span><strong id="activeCount">0件</strong></article><article class="card metric"><span>売上合計</span><strong id="salesTotal">¥0</strong></article><article class="card metric"><span>利益合計</span><strong id="profitTotal">¥0</strong></article></section>
+<section class="card section"><div class="section-head"><h3>現場一覧</h3><button class="pill" id="csvBtn">CSV出力</button></div><div class="filters"><input id="search" type="search" placeholder="現場名・住所・元請で検索"><select id="filter"><option value="all">すべての状態</option><option>見積中</option><option>進行中</option><option>完了</option><option>請求済み</option><option>入金済み</option></select></div><div class="list" id="list"></div><div class="empty" id="empty">まだ現場がありません。<br>「現場登録」から追加してください。</div></section>
+<section class="card section"><div class="section-head"><h3>データ管理</h3></div><div class="quick"><button id="backupBtn">バックアップ保存</button><button id="restoreBtn">バックアップ読込</button><button id="demoBtn">サンプル追加</button></div><input id="restoreInput" type="file" accept="application/json" hidden><div class="notice" style="margin:0 15px 16px">現在の版は、このiPhoneまたはパソコンの中にデータを保存します。社員全員で共有するクラウド版は次の開発段階で追加します。</div></section>
+</main>
+<nav class="nav"><button class="active"><i>⌂</i>ホーム</button><button id="navProjects"><i>▤</i>現場</button><button id="navAdd"><i>＋</i>登録</button><button id="navData"><i>⇩</i>保存</button></nav>
+<dialog id="dlg"><form id="form"><div class="dialog-head"><h2 id="dlgTitle">現場登録</h2><button type="button" class="x" id="close">×</button></div><input type="hidden" id="id"><div class="tabs"><button type="button" class="on" data-tab="basic">基本情報</button><button type="button" data-tab="cost">原価</button><button type="button" data-tab="billing">請求・メモ</button></div>
+<div class="panel on" id="basic"><div class="form-grid"><label>現場名<input id="name" required placeholder="例：○○邸 解体工事"></label><label>状態<select id="status"><option>見積中</option><option selected>進行中</option><option>完了</option><option>請求済み</option><option>入金済み</option></select></label><label class="wide">住所<input id="address" placeholder="現場住所"></label><label>元請会社<input id="client" placeholder="会社名"></label><label>担当者<input id="manager" placeholder="担当者名"></label><label>開始日<input id="startDate" type="date"></label><label>完了予定日<input id="endDate" type="date"></label><label>契約金額（税込）<input id="sales" type="number" inputmode="numeric" min="0" value="0"></label><label>追加工事金額<input id="extras" type="number" inputmode="numeric" min="0" value="0"></label></div></div>
+<div class="panel" id="cost"><div class="form-grid"><label>人件費<input id="labor" type="number" inputmode="numeric" min="0" value="0"></label><label>外注費<input id="outsourcing" type="number" inputmode="numeric" min="0" value="0"></label><label>重機費<input id="machinery" type="number" inputmode="numeric" min="0" value="0"></label><label>ダンプ・運搬費<input id="transport" type="number" inputmode="numeric" min="0" value="0"></label><label>処分費<input id="disposal" type="number" inputmode="numeric" min="0" value="0"></label><label>燃料費<input id="fuel" type="number" inputmode="numeric" min="0" value="0"></label><label>材料・養生費<input id="materials" type="number" inputmode="numeric" min="0" value="0"></label><label>リース代<input id="lease" type="number" inputmode="numeric" min="0" value="0"></label><label>その他経費<input id="other" type="number" inputmode="numeric" min="0" value="0"></label></div></div>
+<div class="panel" id="billing"><div class="form-grid"><label>請求日<input id="invoiceDate" type="date"></label><label>入金予定日<input id="paymentDate" type="date"></label><label class="wide">メモ<textarea id="memo" rows="5" placeholder="追加工事、注意事項、支払い状況など"></textarea></label></div></div>
+<div class="cost-summary"><div><span>売上合計</span><b id="liveSales">¥0</b></div><div><span>原価合計</span><b id="liveCost">¥0</b></div><div><span>予想利益・利益率</span><b id="liveProfit">¥0（0%）</b></div></div><div class="actions"><button type="button" class="delete" id="deleteBtn">削除</button><span class="spacer"></span><button type="button" class="cancel" id="cancel">戻る</button><button type="submit" class="save">保存する</button></div></form></dialog>
+<div class="toast" id="toast"></div>
+<script>
+const KEY='socius-cost-pro-v2', OLD='socius-cost-projects-v1';
+const costKeys=['labor','outsourcing','machinery','transport','disposal','fuel','materials','lease','other'];
+const fields=['id','name','status','address','client','manager','startDate','endDate','sales','extras',...costKeys,'invoiceDate','paymentDate','memo'];
+const $=x=>document.getElementById(x), money=n=>new Intl.NumberFormat('ja-JP',{style:'currency',currency:'JPY',maximumFractionDigits:0}).format(Number(n)||0);
+let projects=JSON.parse(localStorage.getItem(KEY)||'null');
+if(!projects){const old=JSON.parse(localStorage.getItem(OLD)||'[]');projects=old.map(p=>({...p,extras:0,lease:0,invoiceDate:'',paymentDate:''}));localStorage.setItem(KEY,JSON.stringify(projects))}
+const blank=()=>Object.fromEntries(fields.map(k=>[k,['sales','extras',...costKeys].includes(k)?0:'']));
+const revenue=p=>(+p.sales||0)+(+p.extras||0), cost=p=>costKeys.reduce((s,k)=>s+(+p[k]||0),0), profit=p=>revenue(p)-cost(p);
+function esc(s=''){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function persist(){localStorage.setItem(KEY,JSON.stringify(projects));render()}
+function toast(t){$('toast').textContent=t;$('toast').classList.add('show');setTimeout(()=>$('toast').classList.remove('show'),1800)}
+function render(){const now=new Date(),ym=now.toISOString().slice(0,7);$('monthLabel').textContent=`${now.getFullYear()}年${now.getMonth()+1}月`;
+ const q=$('search').value.trim().toLowerCase(),f=$('filter').value;const shown=projects.filter(p=>(f==='all'||p.status===f)&&[p.name,p.address,p.client,p.manager].join(' ').toLowerCase().includes(q));
+ const sum=(arr,fn)=>arr.reduce((s,p)=>s+fn(p),0),month=projects.filter(p=>(p.startDate||'').slice(0,7)===ym);const ms=sum(month,revenue),mc=sum(month,cost),mp=ms-mc;
+ $('heroSales').textContent=money(ms);$('heroCost').textContent=money(mc);$('heroProfit').textContent=money(mp);$('heroMargin').textContent=(ms?mp/ms*100:0).toFixed(1)+'%';$('count').textContent=projects.length+'件';$('activeCount').textContent=projects.filter(p=>p.status==='進行中').length+'件';$('salesTotal').textContent=money(sum(projects,revenue));$('profitTotal').textContent=money(sum(projects,profit));
+ $('empty').style.display=shown.length?'none':'block';$('list').innerHTML=shown.map(p=>{const pr=profit(p),m=revenue(p)?pr/revenue(p)*100:0;return `<article class="project" data-id="${p.id}"><div class="project-name"><b>${esc(p.name||'名称未登録')}</b><small>${esc(p.address||'住所未登録')} ｜ ${esc(p.client||'元請未登録')}</small></div><div class="num"><span>売上</span><b>${money(revenue(p))}</b></div><div class="num"><span>原価</span><b>${money(cost(p))}</b></div><div class="num"><span>利益</span><b class="${pr>=0?'positive':'negative'}">${money(pr)} (${m.toFixed(1)}%)</b></div><span class="status">${esc(p.status)}</span></article>`}).join('');document.querySelectorAll('.project').forEach(x=>x.onclick=()=>open(x.dataset.id))}
+function open(id=''){const p=id?projects.find(x=>x.id===id):blank();$('dlgTitle').textContent=id?'現場を編集':'新しい現場';$('deleteBtn').style.display=id?'block':'none';fields.forEach(k=>{if($(k))$(k).value=p?.[k]??''});tab('basic');live();$('dlg').showModal()}
+function tab(id){document.querySelectorAll('.tabs button').forEach(b=>b.classList.toggle('on',b.dataset.tab===id));document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('on',p.id===id))}
+function live(){const p=blank();['sales','extras',...costKeys].forEach(k=>p[k]=+$(k).value||0);const r=revenue(p),c=cost(p),pr=r-c;$('liveSales').textContent=money(r);$('liveCost').textContent=money(c);$('liveProfit').textContent=`${money(pr)}（${(r?pr/r*100:0).toFixed(1)}%）`}
+$('addBtn').onclick=$('navAdd').onclick=()=>open();$('close').onclick=$('cancel').onclick=()=>$('dlg').close();$('search').oninput=$('filter').onchange=render;document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>tab(b.dataset.tab));['sales','extras',...costKeys].forEach(k=>$(k).oninput=live);
+$('form').onsubmit=e=>{e.preventDefault();const p=blank();fields.forEach(k=>p[k]=$(k)?.value??'');['sales','extras',...costKeys].forEach(k=>p[k]=+p[k]||0);p.id=p.id||crypto.randomUUID();const i=projects.findIndex(x=>x.id===p.id);i>=0?projects[i]=p:projects.unshift(p);persist();$('dlg').close();toast('保存しました')};
+$('deleteBtn').onclick=()=>{const id=$('id').value;if(confirm('この現場を削除しますか？')){projects=projects.filter(p=>p.id!==id);persist();$('dlg').close();toast('削除しました')}};
+function download(name,type,text){const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([text],{type}));a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),500)}
+$('csvBtn').onclick=()=>{if(!projects.length)return alert('現場がありません。');const h=['現場名','状態','住所','元請','担当','開始日','完了予定日','契約金額','追加工事','人件費','外注費','重機費','運搬費','処分費','燃料費','材料費','リース代','その他','原価合計','利益','利益率','請求日','入金予定日','メモ'];const rows=projects.map(p=>[p.name,p.status,p.address,p.client,p.manager,p.startDate,p.endDate,p.sales,p.extras,p.labor,p.outsourcing,p.machinery,p.transport,p.disposal,p.fuel,p.materials,p.lease,p.other,cost(p),profit(p),revenue(p)?(profit(p)/revenue(p)*100).toFixed(1)+'%':'0%',p.invoiceDate,p.paymentDate,p.memo]);download('SociuS_原価管理.csv','text/csv','\ufeff'+[h,...rows].map(r=>r.map(v=>'"'+String(v??'').replaceAll('"','""')+'"').join(',')).join('\n'))};
+$('backupBtn').onclick=()=>download(`SociuS_backup_${new Date().toISOString().slice(0,10)}.json`,'application/json',JSON.stringify({version:2,exportedAt:new Date().toISOString(),projects},null,2));$('restoreBtn').onclick=()=>$('restoreInput').click();$('restoreInput').onchange=async e=>{try{const d=JSON.parse(await e.target.files[0].text());if(!Array.isArray(d.projects))throw 0;if(confirm(`${d.projects.length}件のデータを読み込み、現在のデータを上書きしますか？`)){projects=d.projects;persist();toast('読み込みました')}}catch{alert('正しいバックアップファイルではありません。')}};
+$('demoBtn').onclick=()=>{if(!confirm('サンプル現場を追加しますか？'))return;projects.unshift({...blank(),id:crypto.randomUUID(),name:'サンプル：○○邸 解体工事',status:'進行中',address:'東京都○○区',client:'○○建設株式会社',manager:'小林',startDate:new Date().toISOString().slice(0,10),sales:5000000,labor:850000,outsourcing:450000,machinery:420000,transport:320000,disposal:1180000,fuel:170000,materials:90000,lease:80000,other:110000});persist();toast('追加しました')};
+$('navProjects').onclick=()=>document.querySelector('.section').scrollIntoView({behavior:'smooth'});$('navData').onclick=()=>document.querySelectorAll('.section')[1].scrollIntoView({behavior:'smooth'});render();
+if('serviceWorker'in navigator)addEventListener('load',()=>navigator.serviceWorker.register('./sw.js'));
+</script>
+</body></html>
